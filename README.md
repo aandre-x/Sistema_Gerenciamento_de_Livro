@@ -1,32 +1,37 @@
+# 📚 Gerenciador de Livros
 
-# 📚 Sistema de Gerenciamento de Livros - API REST
+Este projeto consiste em uma API REST desenvolvida com **Spring Boot**, que oferece funcionalidades para gerenciar um catálogo de livros. Através dessa API, é possível **listar**, **adicionar** e **remover** livros por meio de endpoints RESTful.
 
-Este projeto é uma API REST simples desenvolvida com **Spring Boot**, responsável por gerenciar um catálogo de livros. Ele permite listar, adicionar e remover livros utilizando endpoints RESTful.
+---
 
 ## 🚀 Funcionalidades
 
-* ✅ Listar todos os livros
-* ✅ Adicionar um novo livro
-* ✅ Remover livro por ID
+- ✅ Visualizar todos os livros cadastrados
+- ✅ Inserir um novo livro no catálogo
+- ✅ Excluir um livro com base no ID
+
+---
 
 ## 🛠 Tecnologias Utilizadas
 
-* Java 17+
-* Spring Boot
-* Spring Web
-* Jakarta Bean Validation (JSR 380)
+- Java 17+
+- Spring Boot
+- Spring Web
+- Jakarta Bean Validation (JSR 380)
 
+---
 
 ## 📄 Endpoints da API
 
-### 🔍 Listar livros
+### 🔍 Visualizar livros
 
-**GET** `/livros`
+- **Método:** `GET /livros`  
+- **Descrição:** Retorna todos os livros cadastrados no sistema.  
+- **Resposta:**
+  - `200 OK` com a lista de livros
+  - `204 No Content` caso não haja livros cadastrados
 
-* Retorna a lista de todos os livros cadastrados.
-* Se não houver livros, retorna status `204 No Content`.
-
-**Resposta (200 OK)**
+📘 **Exemplo de resposta:**
 
 ```json
 [
@@ -36,62 +41,61 @@ Este projeto é uma API REST simples desenvolvida com **Spring Boot**, responsá
     "autor": "Machado de Assis"
   }
 ]
-```
+➕ Inserir um novo livro
+Método: POST /livros
 
----
+Descrição: Cadastra um novo livro no sistema.
 
-### ➕ Adicionar livro
+Campos obrigatórios: titulo, autor
 
-**POST** `/livros`
+Corpo da requisição:
 
-* Adiciona um novo livro ao sistema.
-* Campos obrigatórios: `titulo`, `autor`.
-
-**Corpo da Requisição**
-
-```json
+json
+Copiar
+Editar
 {
   "titulo": "1984",
   "autor": "George Orwell"
 }
-```
+Resposta: 201 Created
 
-**Resposta (201 Created)**
+📘 Exemplo de resposta:
 
-```json
+json
+Copiar
+Editar
 {
   "id": "2",
   "titulo": "1984",
   "autor": "George Orwell"
 }
-```
+❌ Excluir livro por ID
+Método: DELETE /livros/{id}
 
----
+Descrição: Remove o livro identificado pelo ID fornecido.
 
-### ❌ Remover livro
+Resposta: 204 No Content em caso de sucesso
 
-**DELETE** `/livros/{id}`
+▶️ Como rodar o projeto
+Clone o repositório:
 
-* Remove um livro com o ID informado.
-* Retorna `204 No Content` em caso de sucesso.
+bash
+Copiar
+Editar
+git clone https://github.com/seuusuario/seu-repositorio.git
+Acesse o diretório do projeto:
 
----
+bash
+Copiar
+Editar
+cd seu-repositorio
+Execute a aplicação utilizando o Maven Wrapper:
 
-## ▶️ Como executar
+bash
+Copiar
+Editar
+./mvnw spring-boot:run
+Nota: Certifique-se de ter o Java 17 ou superior instalado na sua máquina.
 
-1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/seuusuario/seu-repositorio.git
-   ```
-2. Navegue até a pasta do projeto:
-
-   ```bash
-   cd seu-repositorio
-   ```
-3. Execute a aplicação:
-
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-
+👤 Autor
+Criado por @ancribeiro
